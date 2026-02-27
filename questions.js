@@ -110,7 +110,7 @@ hinglish:"Probability kya hota hai?",
 english:"What is probability?",
 answer:"Favourable outcomes / total outcomes"
 }
-]
+],
   
 ],
 
@@ -435,7 +435,8 @@ hinglish:"Density kya hai?",
 english:"What is density?",
 answer:"Mass per unit volume"
 }
-]
+],
+  
 ],
   
 sst: [
@@ -735,8 +736,8 @@ hinglish:"Weather kya hai?",
 english:"What is weather?",
 answer:"Condition of atmosphere"
 }
-]
-
+],
+  
 ],
 
 hindi: [
@@ -1012,7 +1013,7 @@ hinglish:"Negative sentence?",
 english:"Negative sentence?",
 answer:"नकार बताने वाला वाक्य"
 }
-]
+],
 
 ],
 
@@ -1276,7 +1277,6 @@ hinglish:"Chandra meaning?",
 english:"Meaning?",
 answer:"चंद्रमा"
 }
-]
+],
 
 };
-
