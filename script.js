@@ -1,6 +1,7 @@
 let lang = "hindi";
 let subject = "maths";
 let showCount = 10;
+let searchText = "";
 
 document.getElementById("language").onchange = e=>{
 lang = e.target.value;
@@ -13,6 +14,11 @@ showCount = 10;
 render();
 };
 
+document.getElementById("search").oninput = e=>{
+searchText = e.target.value.toLowerCase();
+render();
+};
+
 document.getElementById("moreBtn").onclick = ()=>{
 showCount += 10;
 render();
@@ -21,6 +27,13 @@ render();
 function render(){
 
 let list = questionsData[subject];
+
+if(searchText){
+list = list.filter(q =>
+q[lang].toLowerCase().includes(searchText)
+);
+}
+
 let html = "";
 
 list.slice(0,showCount).forEach(q=>{
@@ -40,8 +53,17 @@ document.getElementById("questions").innerHTML = html;
 }
 
 function toggle(btn){
+
 let ans = btn.nextElementSibling;
-ans.style.display = ans.style.display==="block" ? "none":"block";
+
+if(ans.style.display==="block"){
+ans.style.display="none";
+btn.innerText="Show Answer";
+}else{
+ans.style.display="block";
+btn.innerText="Hide Answer";
+}
+
 }
 
 render();
