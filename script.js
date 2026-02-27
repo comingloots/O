@@ -67,6 +67,10 @@ btn.innerText="Hide Answer";
 }
 
 render();
+
+
+/* QUIZ SYSTEM */
+
 let quizList = [];
 let quizIndex = 0;
 let score = 0;
@@ -84,22 +88,40 @@ showQuiz();
 
 }
 
+
+function generateOptions(correct){
+
+let options = [correct];
+
+while(options.length < 4){
+
+let random =
+questionsData[subject][
+Math.floor(Math.random()*questionsData[subject].length)
+].answer;
+
+if(!options.includes(random)){
+options.push(random);
+}
+
+}
+
+return options.sort(()=>Math.random()-0.5);
+
+}
+
+
 function showQuiz(){
 
 let q = quizList[quizIndex];
+
+let options = generateOptions(q.answer);
 
 let html = `
 <div class="q">
 <p><b>Question ${quizIndex+1}/25</b></p>
 <p>${q[lang]}</p>
 `;
-
-let options = shuffle([
-q.answer,
-"Option A",
-"Option B",
-"Option C"
-]);
 
 options.forEach(opt=>{
 html += `<button class="option" onclick="selectAnswer('${opt}')">${opt}</button>`;
@@ -110,6 +132,7 @@ html += `</div>`;
 document.getElementById("questions").innerHTML = html;
 
 }
+
 
 function selectAnswer(ans){
 
@@ -132,18 +155,20 @@ finishQuiz();
 
 }
 
+
 function finishQuiz(){
 
 document.getElementById("questions").innerHTML = `
 <div class="q">
 <h2>Quiz Finished 🎉</h2>
-<p>Your Score: ${score} / 25</p>
+<p>Your Score: ${score}/25</p>
 <button onclick="startQuiz()">Play Again</button>
 </div>
 `;
 
 }
-
-function shuffle(arr){
-return arr.sort(()=>0.5 - Math.random());
+.option{
+display:block;
+width:100%;
+margin:8px 0;
 }
