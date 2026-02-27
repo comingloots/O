@@ -111,8 +111,6 @@ english:"What is probability?",
 answer:"Favourable outcomes / total outcomes"
 }
 ],
-  
-],
 
 science: [
 
@@ -200,7 +198,6 @@ hinglish:"Lens kya hota hai?",
 english:"What is lens?",
 answer:"Transparent material that refracts light"
 },
-[
 {
 hindi:"रासायनिक अभिक्रिया क्या है?",
 hinglish:"Chemical reaction kya hai?",
@@ -437,8 +434,6 @@ answer:"Mass per unit volume"
 }
 ],
   
-],
-  
 sst: [
 
 {
@@ -507,7 +502,6 @@ hinglish:"Development kya hota hai?",
 english:"What is development?",
 answer:"Improvement in quality of life"
 },
-[
 {
 hindi:"फ्रांसीसी क्रांति कब हुई?",
 hinglish:"French revolution kab hua?",
@@ -737,8 +731,6 @@ english:"What is weather?",
 answer:"Condition of atmosphere"
 }
 ],
-  
-],
 
 hindi: [
 
@@ -772,7 +764,6 @@ hinglish:"Verb kya hai?",
 english:"What is verb?",
 answer:"Action word"
 },
-[
 {
 hindi:"संज्ञा क्या है?",
 hinglish:"Sangya kya hai?",
@@ -1013,8 +1004,6 @@ hinglish:"Negative sentence?",
 english:"Negative sentence?",
 answer:"नकार बताने वाला वाक्य"
 }
-],
-
 ],
 
 sanskrit: [
@@ -1277,6 +1266,7 @@ hinglish:"Chandra meaning?",
 english:"Meaning?",
 answer:"चंद्रमा"
 }
-],
+]
 
 };
+
