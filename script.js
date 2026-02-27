@@ -26,11 +26,11 @@ render();
 
 function render(){
 
-let list = questionsData[subject] || [];
+let list = (questionsData && questionsData[subject]) ? questionsData[subject] : [];
   
 if(searchText){
 list = list.filter(q =>
-q[lang].toLowerCase().includes(searchText)
+(q[lang] || "").toLowerCase().includes(searchText)
 );
 }
 
@@ -40,7 +40,7 @@ list.slice(0,showCount).forEach(q=>{
 
 html += `
 <div class="q">
-<p>${q[lang]}</p>
+<p>${q[lang] || q.hindi || q.english || ""}</p>
 <button onclick="toggle(this)">Show Answer</button>
 <div class="answer">${q.answer}</div>
 </div>
@@ -170,4 +170,5 @@ display:block;
 width:100%;
 margin:8px 0;
 }
+
 
