@@ -26,8 +26,8 @@ render();
 
 function render(){
 
-let list = questionsData[subject];
-
+let list = questionsData[subject] || [];
+  
 if(searchText){
 list = list.filter(q =>
 q[lang].toLowerCase().includes(searchText)
@@ -88,19 +88,25 @@ showQuiz();
 
 }
 
+function showQuiz(){
 
-function generateOptions(correct){
+if(!quizList.length) return;
+
+let q = quizList[quizIndex];
+
+let questionText = q[lang] || q.hindi || q.english;
+
+let options = generatefunction generateOptions(correct){
 
 let options = [correct];
 
-while(options.length < 4){
+let pool = questionsData[subject] || [];
 
-let random =
-questionsData[subject][
-Math.floor(Math.random()*questionsData[subject].length)
-].answer;
+while(options.length < 4 && pool.length){
 
-if(!options.includes(random)){
+let random = pool[Math.floor(Math.random()*pool.length)].answer;
+
+if(random && !options.includes(random)){
 options.push(random);
 }
 
@@ -109,18 +115,12 @@ options.push(random);
 return options.sort(()=>Math.random()-0.5);
 
 }
-
-
-function showQuiz(){
-
-let q = quizList[quizIndex];
-
-let options = generateOptions(q.answer);
+  Options(q.answer);
 
 let html = `
 <div class="q">
 <p><b>Question ${quizIndex+1}/25</b></p>
-<p>${q[lang]}</p>
+<p>${questionText}</p>
 `;
 
 options.forEach(opt=>{
@@ -132,7 +132,6 @@ html += `</div>`;
 document.getElementById("questions").innerHTML = html;
 
 }
-
 
 function selectAnswer(ans){
 
@@ -155,7 +154,6 @@ finishQuiz();
 
 }
 
-
 function finishQuiz(){
 
 document.getElementById("questions").innerHTML = `
@@ -172,3 +170,4 @@ display:block;
 width:100%;
 margin:8px 0;
 }
+
