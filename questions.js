@@ -110,6 +110,7 @@ hinglish:"Probability kya hota hai?",
 english:"What is probability?",
 answer:"Favourable outcomes / total outcomes"
 }
+]
   
 ],
 
@@ -435,9 +436,8 @@ english:"What is density?",
 answer:"Mass per unit volume"
 }
 ]
-
 ],
-
+  
 sst: [
 
 {
@@ -1042,7 +1042,6 @@ hinglish:"Ram ka meaning?",
 english:"Meaning of Ramah?",
 answer:"Ram"
 },
-[
 {
 hindi:"संस्कृत क्या है?",
 hinglish:"Sanskrit kya hai?",
@@ -1280,3 +1279,4 @@ answer:"चंद्रमा"
 ]
 
 };
+
