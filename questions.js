@@ -109,7 +109,25 @@ hindi:"Probability kya hoti hai?",
 hinglish:"Probability kya hota hai?",
 english:"What is probability?",
 answer:"Favourable outcomes / total outcomes"
-}
+},
+  {
+    "hindi": "यूक्लिड विभाजन एल्गोरिद्म का प्रयोग कर 135 और 225 का HCF ज्ञात करें।",
+    "hinglish": "Euclid vibhajan algorithm se 135 aur 225 ka HCF nikalein.",
+    "english": "Find HCF of 135 and 225 using Euclid's division algorithm.",
+    "answer": "225 = 135 × 1 + 90; 135 = 90 × 1 + 45; 90 = 45 × 2 + 0. HCF = 45"
+  },
+  {
+    "hindi": "सिद्ध करें कि 3 + 2√5 एक अपरिमेय संख्या है।",
+    "hinglish": "Siddh karein ki 3 + 2√5 ek aparimey sankhya hai.",
+    "english": "Prove that 3 + 2√5 is an irrational number.",
+    "answer": "माना यह परिमेय है, फिर विरोधाभास (contradiction) दिखा कर सिद्ध करें कि √5 अपरिमेय है।"
+  },
+  {
+    "hindi": "एक लंबवृत्तीय बेलन का आयतन ज्ञात करें जिसकी त्रिज्या 7cm और ऊँचाई 10cm है।",
+    "hinglish": "Belan ka aayatan nikalein (r=7, h=10).",
+    "english": "Find volume of cylinder (r=7, h=10).",
+    "answer": "V = πr²h = (22/7) × 7 × 7 × 10 = 1540 cm³"
+  }
 ],
 
 science: [
@@ -431,7 +449,31 @@ hindi:"घनत्व क्या है?",
 hinglish:"Density kya hai?",
 english:"What is density?",
 answer:"Mass per unit volume"
-}
+},
+{
+    "hindi": "प्रकाश के परावर्तन के नियमों को लिखें।",
+    "hinglish": "Prakash ke paravartan ke niyam likhein.",
+    "english": "Write the laws of reflection of light.",
+    "answer": "1. आपतन कोण = परावर्तन कोण (∠i = ∠r). 2. आपतित किरण, परावर्तित किरण और अभिलंब तीनों एक ही तल में होते हैं।"
+  },
+  {
+    "hindi": "धोवन सोडा और बेकिंग सोडा में अंतर स्पष्ट करें।",
+    "hinglish": "Dhowan soda aur baking soda mein antar batayein.",
+    "english": "Differentiate between washing soda and baking soda.",
+    "answer": "धोवन सोडा (Na2CO3.10H2O) सफाई के काम आता है, जबकि बेकिंग सोडा (NaHCO3) खाना पकाने और एंटासिड के रूप में।" 
+  },
+  {
+    "hindi": "आयोडीन युक्त नमक की सलाह क्यों दी जाती है?",
+    "hinglish": "Iodine yukta namak ki salah kyon di jati hai?",
+    "english": "Why is iodized salt recommended?",
+    "answer": "घेंघा रोग (Goitre) से बचने के लिए, क्योंकि थायराइड ग्रंथि को थायरोक्सिन हार्मोन बनाने के लिए आयोडीन चाहिए।"
+  },
+  {
+    "hindi": "निकट दृष्टि दोष क्या है? इसे कैसे दूर किया जाता है?",
+    "hinglish": "Nikat drishti dosh kya hai? Isse kaise door karte hain?",
+    "english": "What is Myopia? How is it corrected?",
+    "answer": "पास की वस्तु दिखती है पर दूर की नहीं। इसे 'अवतल लेंस' (Concave lens) से ठीक किया जाता है।"
+  }
 ],
   
 sst: [
@@ -1269,4 +1311,5 @@ answer:"चंद्रमा"
 ]
 
 };
+
 
