@@ -3,6 +3,13 @@ let subject = "maths";
 let showCount = 10;
 let searchText = "";
 
+/* SOUNDS */
+
+const correctSound = new Audio("correct.mp3");
+const wrongSound = new Audio("wrong.mp3");
+
+/* CONTROLS */
+
 document.getElementById("language").onchange = e=>{
 lang = e.target.value;
 render();
@@ -23,6 +30,8 @@ document.getElementById("moreBtn").onclick = ()=>{
 showCount += 10;
 render();
 };
+
+/* QUESTION LIST */
 
 function render(){
 
@@ -87,6 +96,8 @@ showQuiz();
 
 }
 
+/* RANDOM OPTIONS */
+
 function generateOptions(correct){
 
 let options = [correct];
@@ -106,6 +117,8 @@ options.push(random);
 return options.sort(()=>Math.random()-0.5);
 
 }
+
+/* SHOW QUIZ */
 
 function showQuiz(){
 
@@ -133,15 +146,23 @@ document.getElementById("questions").innerHTML = html;
 
 }
 
+/* ANSWER CHECK */
+
 function selectAnswer(ans){
 
 let correct = quizList[quizIndex].answer;
 
 if(ans === correct){
+
 score++;
+correctSound.play();
 alert("Correct ✅");
+
 }else{
-alert("Wrong ❌");
+
+wrongSound.play();
+alert("Wrong ❌ \n\nCorrect Answer:\n" + correct);
+
 }
 
 quizIndex++;
@@ -154,6 +175,8 @@ finishQuiz();
 
 }
 
+/* FINISH SCREEN */
+
 function finishQuiz(){
 
 document.getElementById("questions").innerHTML = `
@@ -164,4 +187,9 @@ document.getElementById("questions").innerHTML = `
 </div>
 `;
 
+}
+.option{
+display:block;
+width:100%;
+margin:8px 0;
 }
