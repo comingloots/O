@@ -27,7 +27,7 @@ render();
 function render(){
 
 let list = (questionsData && questionsData[subject]) ? questionsData[subject] : [];
-  
+
 if(searchText){
 list = list.filter(q =>
 (q[lang] || "").toLowerCase().includes(searchText)
@@ -68,7 +68,6 @@ btn.innerText="Hide Answer";
 
 render();
 
-
 /* QUIZ SYSTEM */
 
 let quizList = [];
@@ -88,15 +87,7 @@ showQuiz();
 
 }
 
-function showQuiz(){
-
-if(!quizList.length) return;
-
-let q = quizList[quizIndex];
-
-let questionText = q[lang] || q.hindi || q.english;
-
-let options = generatefunction generateOptions(correct){
+function generateOptions(correct){
 
 let options = [correct];
 
@@ -115,7 +106,16 @@ options.push(random);
 return options.sort(()=>Math.random()-0.5);
 
 }
-  Options(q.answer);
+
+function showQuiz(){
+
+if(!quizList.length) return;
+
+let q = quizList[quizIndex];
+
+let questionText = q[lang] || q.hindi || q.english;
+
+let options = generateOptions(q.answer);
 
 let html = `
 <div class="q">
@@ -165,10 +165,3 @@ document.getElementById("questions").innerHTML = `
 `;
 
 }
-.option{
-display:block;
-width:100%;
-margin:8px 0;
-}
-
-
