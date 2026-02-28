@@ -188,8 +188,3 @@ document.getElementById("questions").innerHTML = `
 `;
 
 }
-.option{
-display:block;
-width:100%;
-margin:8px 0;
-}
