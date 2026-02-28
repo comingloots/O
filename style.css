@@ -149,3 +149,31 @@ margin-top:6px;
 font-size:12px;
 background:#22c55e;
 }
+header{
+text-align:center;
+padding:26px 12px;
+background:linear-gradient(180deg,#020617,#0f172a);
+border-bottom:1px solid #1e293b;
+}
+
+.title{
+font-size:30px;
+font-weight:800;
+letter-spacing:.5px;
+margin:0;
+}
+
+.badge{
+background:#38bdf8;
+color:#020617;
+padding:4px 10px;
+border-radius:8px;
+font-size:20px;
+margin-left:6px;
+}
+
+.tag{
+font-size:13px;
+opacity:.7;
+margin-top:6px;
+}
