@@ -50,6 +50,7 @@ list.slice(0,showCount).forEach(q=>{
 html += `
 <div class="q">
 <p>${q[lang] || q.hindi || q.english || ""}</p>
+
 <button onclick="toggle(this)">Show Answer</button>
 
 <div class="answer">
@@ -143,6 +144,7 @@ let options = generateOptions(q.answer);
 
 let html = `
 <div class="q">
+
 <p><b>Question ${quizIndex+1}/25</b></p>
 
 <p id="qText">${questionText}</p>
