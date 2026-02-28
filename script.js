@@ -51,7 +51,13 @@ html += `
 <div class="q">
 <p>${q[lang] || q.hindi || q.english || ""}</p>
 <button onclick="toggle(this)">Show Answer</button>
-<div class="answer">${q.answer}</div>
+
+<div class="answer">
+<span class="ansText">${q.answer}</span>
+<br>
+<button onclick="translateAns(this)">🌐 Hindi</button>
+</div>
+
 </div>
 `;
 
@@ -85,7 +91,7 @@ let score = 0;
 
 function startQuiz(){
 
-quizList = questionsData[subject]
+quizList = [...questionsData[subject]]
 .sort(()=>0.5 - Math.random())
 .slice(0,25);
 
@@ -100,21 +106,23 @@ showQuiz();
 
 function generateOptions(correct){
 
-let options = [correct];
+let options = new Set();
+options.add(correct);
 
 let pool = questionsData[subject] || [];
+let attempts = 0;
 
-while(options.length < 4 && pool.length){
+while(options.size < 4 && attempts < 50){
 
 let random = pool[Math.floor(Math.random()*pool.length)].answer;
 
-if(random && !options.includes(random)){
-options.push(random);
-}
+if(random) options.add(random);
+
+attempts++;
 
 }
 
-return options.sort(()=>Math.random()-0.5);
+return Array.from(options).sort(()=>Math.random()-0.5);
 
 }
 
@@ -122,7 +130,10 @@ return options.sort(()=>Math.random()-0.5);
 
 function showQuiz(){
 
-if(!quizList.length) return;
+if(quizIndex >= quizList.length){
+finishQuiz();
+return;
+}
 
 let q = quizList[quizIndex];
 
@@ -133,7 +144,9 @@ let options = generateOptions(q.answer);
 let html = `
 <div class="q">
 <p><b>Question ${quizIndex+1}/25</b></p>
-<p>${questionText}</p>
+
+<p id="qText">${questionText}</p>
+<button onclick="translateQuestion()">🌐 Hindi</button>
 `;
 
 options.forEach(opt=>{
@@ -167,11 +180,7 @@ alert("Wrong ❌ \n\nCorrect Answer:\n" + correct);
 
 quizIndex++;
 
-if(quizIndex < 25){
 showQuiz();
-}else{
-finishQuiz();
-}
 
 }
 
@@ -186,5 +195,45 @@ document.getElementById("questions").innerHTML = `
 <button onclick="startQuiz()">Play Again</button>
 </div>
 `;
+
+}
+
+/* TRANSLATION */
+
+function translateAns(btn){
+
+let text = btn.parentElement.querySelector(".ansText").innerText;
+
+let url =
+"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=hi&dt=t&q="
++ encodeURIComponent(text);
+
+fetch(url)
+.then(res => res.json())
+.then(data => {
+
+btn.parentElement.querySelector(".ansText").innerText =
+data[0][0][0];
+
+});
+
+}
+
+function translateQuestion(){
+
+let text = document.getElementById("qText").innerText;
+
+let url =
+"https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=hi&dt=t&q="
++ encodeURIComponent(text);
+
+fetch(url)
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("qText").innerText =
+data[0][0][0];
+
+});
 
 }
